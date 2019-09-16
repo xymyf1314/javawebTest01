@@ -57,7 +57,7 @@ public class ServletDemo01 extends HttpServlet {
             admin.setAPwd(apwd);
             mapper.add(admin);
             session.commit();
-            response.sendRedirect("findAll");
+            response.sendRedirect("findAll.demo01");
         }
 
     }
