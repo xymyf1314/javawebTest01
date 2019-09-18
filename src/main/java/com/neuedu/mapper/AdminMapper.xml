@@ -6,17 +6,27 @@
     <select id="findAll" resultMap="selectMap">
     select id,aName,aPwd from t_admin
     </select>
+    <select id="findById" resultMap="selectMap">
+    select id,aName,aPwd from t_admin where id=#{id}
+    </select>
     <resultMap id="selectMap" type="Admin">
         <result property="id" column="id"/>
         <result property="aName" column="aname"/>
         <result property="aPwd" column="apwd"/>
     </resultMap>
     <insert id="add" parameterMap="insert">
-        insert into t_admin values (null,#{aName},md5(#{aPwd}));
+        insert into t_admin values (null,#{aName},md5(#{aPwd}))
     </insert>
+    <update id="update" parameterMap="insert">
+        update t_admin set aname=#{aName},apwd=#{aPwd} where id=#{id}
+    </update>
     <parameterMap id="insert" type="Admin">
         <parameter property="id" resultMap="selectMap"/>
         <parameter property="aName" resultMap="selectMap"/>
         <parameter property="aPwd" resultMap="selectMap"/>
     </parameterMap>
+    <delete id="del" parameterType="int">
+        delete from t_admin where id =#{id}
+    </delete>
+
 </mapper>

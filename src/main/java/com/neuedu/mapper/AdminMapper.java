@@ -7,5 +7,11 @@ import java.util.List;
 public interface AdminMapper {
     List<Admin> findAll();
 
+    List<Admin> findById(int id);
+
     boolean add(Admin admin);
+
+    boolean update(Admin admin);
+
+    boolean del(int id);
 }
