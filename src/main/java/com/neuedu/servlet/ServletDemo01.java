@@ -37,21 +37,10 @@ public class ServletDemo01 extends HttpServlet {
         String substring = url.substring(url.lastIndexOf("/"), url.lastIndexOf(".demo01"));
         if ("/findAll".equals(substring)) {
             System.out.println("findAll");
-            List<Admin> list = adminService.findAll();
-            PrintWriter out = response.getWriter();
-            out.print("<table border=\"1\" cellspacing=\"1\" cellpadding=\"1\">");
-            out.print("<tr>");
-            out.print("<td>ID</td><td>Aname</td><td>Apwd</td><td>Operation\n</td>");
-            out.print("</tr>");
-            for (int i = 0; i < list.size(); i++) {
-                out.print("<tr>");
-                out.print("<td>" + list.get(i).getId() + "</td>");
-                out.print("<td>" + list.get(i).getAName() + "</td>");
-                out.print("<td>" + list.get(i).getAPwd() + "</td>");
-                out.print("<td><a href='/servletTest03_war/load.demo01?id=" + list.get(i).getId() + "'>修改</a>&nbsp&nbsp<a href='/servletTest03_war/del.demo01?id=" + list.get(i).getId() + "'>删除</a></td>");
-                out.print("</tr>");
-            }
-            out.print("</table>");
+            List<Admin> admins = adminService.findAll();
+            request.setAttribute("admins",admins);
+            request.getRequestDispatcher("admin-list.jsp").forward(request,response);
+
         } else if ("/add".equals(substring)) {
             System.out.println("add");
             Admin admin = new Admin();
@@ -67,13 +56,7 @@ public class ServletDemo01 extends HttpServlet {
             PrintWriter out = response.getWriter();
             int id = Integer.parseInt(request.getParameter("id"));
             List<Admin> list = adminService.findById(id);
-            out.print("<form action=\"update.demo01\" method=\"post\">\n" +
-                    "    <input type=\"text\" name=\"id\" value=\"" + list.get(0).getId() + "\" readonly/>\n" +
-                    "    <input type=\"text\" name=\"aname\" value=\"" + list.get(0).getAName() + "\"/>\n" +
-                    "    <input type=\"password\" name=\"apwd\" value=\"" + list.get(0).getAPwd() + "\"/>\n" +
-                    "    <input type=\"submit\" value=\"修改\">\n" +
-                    "</form>");
-
+            Admin admin = new Admin();
 
         } else if ("/update".equals(substring)) {
             System.out.println("update");
@@ -88,8 +71,12 @@ public class ServletDemo01 extends HttpServlet {
             response.sendRedirect("findAll.demo01");
         } else if ("/del".equals(substring)) {
             System.out.println("del");
-            int id = Integer.parseInt(request.getParameter("id"));
-            boolean del = adminService.del(id);
+
+            String id = request.getParameter("aid");
+
+            System.out.println(id);
+//            int id = Integer.parseInt(request.getParameter("id"));
+            boolean del = adminService.del(Integer.parseInt(id));
             session.commit();
             System.out.println(del);
             response.sendRedirect("findAll.demo01");
