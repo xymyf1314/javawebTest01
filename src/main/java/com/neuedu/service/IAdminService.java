@@ -9,10 +9,14 @@ public interface IAdminService {
 
     List<Admin> findById(int id);
 
+    Admin findByName(String aname);
+
     boolean add(Admin admin);
 
     boolean update(Admin admin);
 
     boolean del(int id);
+
+    Admin logIn(String aname, String apwd);
 
 }
