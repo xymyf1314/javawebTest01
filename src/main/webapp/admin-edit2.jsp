@@ -1,5 +1,5 @@
 <%@include file="header.jsp"%>
-<%@page pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
+<%@page pageEncoding="utf-8" contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 

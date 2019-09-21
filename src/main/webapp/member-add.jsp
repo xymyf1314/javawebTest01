@@ -1,5 +1,4 @@
-<%@page pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
-<%@include file="header.jsp"%>
+<%@page pageEncoding="UTF-8" contentType="text/html;charset=utf-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html class="x-admin-sm">
 
@@ -25,26 +24,43 @@
 
 <body>
 <div class="x-body">
-    <form action="/servletTest03_war/add.demo01" method="post" class="layui-form">
+    <form action="/servletTest03_war/userServlet?method=add" method="post" class="layui-form">
         <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>登录名
+            <label for="L_email" class="layui-form-label">
+                <span class="x-red">*</span>用户名
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="username" name="aname" required="" lay-verify="required"
+                <input type="text" id="L_email" name="username" required="required"
                        autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">
                 <span class="x-red">*</span>将会成为您唯一的登入名
             </div>
         </div>
-
+        <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+                <span class="x-red">*</span>手机号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_username" name="phone" required="" lay-verify="nikename"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_username" class="layui-form-label">
+                <span class="x-red">*</span>地址
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" name="addr" required="" lay-verify="nikename"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
         <div class="layui-form-item">
             <label for="L_pass" class="layui-form-label">
                 <span class="x-red">*</span>密码
             </label>
             <div class="layui-input-inline">
-                <input type="password" id="L_pass" name="apwd" required="" lay-verify="pass"
+                <input type="password" id="L_pass" name="password" required="" lay-verify="pass"
                        autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">
@@ -56,67 +72,62 @@
                 <span class="x-red">*</span>确认密码
             </label>
             <div class="layui-input-inline">
-                <input type="password" id="L_repass" name="rapwd" required="" lay-verify="repass"
+                <input type="password" id="L_repass" name="rpassword" required="" lay-verify="repass"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label for="L_repass" class="layui-form-label">
             </label>
-            <%--            <input type="submit" class="layui-btn" lay-filter="add" lay-submit="add"/>--%>
-            <input type="submit" class="layui-btn" lay-filter="add"/>
+            <input type="submit"  class="layui-btn" lay-filter="add"/>
         </div>
-
 
     </form>
 </div>
 <script>
-    // layui.use(['form', 'layer'], function () {
-    //     $ = layui.jquery;
-    //     var form = layui.form
-    //         , layer = layui.layer;
+    // layui.use(['form','layer'], function(){
+    //         $ = layui.jquery;
+    //         var form = layui.form
+    //             ,layer = layui.layer;
     //
-    //     //自定义验证规则
-    //     form.verify({
-    //         nikename: function (value) {
-    //             if (value.length < 5) {
-    //                 return '昵称至少得5个字符啊';
-    //             }
-    //         }
-    //         , pass: [/(.+){6,12}$/, '密码必须6到12位']
-    //         , repass: function (value) {
-    //             if ($('#L_pass').val() != $('#L_repass').val()) {
-    //                 return '两次密码不一致';
-    //             }
-    //         }
-    //     });
-
-        //监听提交
-        // form.on('submit(add)', function (data) {
-        //     //发异步，把数据提交给php
-        //     layer.alert("增加成功", {icon: 6}, function () {
-        //         // 获得frame索引
-        //         var index = parent.layer.getFrameIndex(window.name);
-        //         //关闭当前frame
-        //         parent.layer.close(index);
-        //         // 可以对父窗口进行刷新
-        //         x_admin_father_reload();
-        //     });
-        //     return false;
-        // });
-
-
+    //自定义验证规则
+    // form.verify({
+    //   nikename: function(value){
+    //     if(value.length < 5){
+    //       return '昵称至少得5个字符啊';
+    //     }
+    //   }
+    //   ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+    //   ,repass: function(value){
+    //       if($('#L_pass').val()!=$('#L_repass').val()){
+    //           return '两次密码不一致';
+    //       }
+    //   }
     // });
 
+    // 监听提交
+    //  form.on('submit(add)', function(data){
+    //    console.log(data);
+    //    //发异步，把数据提交给php
+    //    layer.alert("增加成功", {icon: 6},function () {
+    //        //关闭当前frame
+    //        x_admin_close();
+    //
+    //        // 可以对父窗口进行刷新
+    //        x_admin_father_reload();
+    //    });
+    //    // return false;
+    //  });
+    // });
     $(".layui-btn").click(function () {
         // layer.alert("增加成功", {icon: 6}, function () {
-        var index = parent.layer.getFrameIndex(window.name);
-        //关闭当前frame
-        parent.layer.close(index);
-        // 可以对父窗口进行刷新
+            var index = parent.layer.getFrameIndex(window.name);
+            //关闭当前frame
+            parent.layer.close(index);
+            // 可以对父窗口进行刷新
+            x_admin_father_reload();
         // });
     });
-
 </script>
 <script>var _hmt = _hmt || [];
 (function () {

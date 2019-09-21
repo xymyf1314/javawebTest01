@@ -382,18 +382,11 @@ function x_admin_show(title,url,w,h,full=false){
         shade:0.4,
         title: title,
         content: url,
-        success: function(){
-          //窗口加载成功刷新frame
-          // location.replace(location.href);
-        },
-        cancel:function(){
-          //关闭窗口之后刷新frame
-          // location.replace(location.href);
-        },
         end:function(){
-          //窗口销毁之后刷新frame
-          // location.replace(location.href);
+            //窗口销毁之后刷新frame
+           alert(123);
         }
+
     });
     if(full){
        layer.full(index); 

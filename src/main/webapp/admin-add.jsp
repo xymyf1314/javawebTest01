@@ -108,15 +108,14 @@
 
     // });
 
-    /*$(".layui-btn").click(function () {
-        layer.alert("增加成功", {icon: 6}, function () {
-            var index = parent.layer.getFrameIndex(window.name);
-            //关闭当前frame
-            parent.layer.close(index);
-            // 可以对父窗口进行刷新
-            x_admin_father_reload();
-        });
-    });*/
+    $(".layui-btn").click(function () {
+        // layer.alert("增加成功", {icon: 6}, function () {
+        var index = parent.layer.getFrameIndex(window.name);
+        //关闭当前frame
+        parent.layer.close(index);
+        // 可以对父窗口进行刷新
+        // });
+    });
 
 </script>
 <script>var _hmt = _hmt || [];
