@@ -29,7 +29,7 @@
             <input name="apwd" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
                 <input style="width: 140px;float:left" name="yzm" lay-verify="required" placeholder="验证码"type="text" class="layui-input">
-            <a href="javascript:;" onclick="document.getElementById('img').src='/servletTest03_war/checkcode/'+(new Date()).getTime()">
+            <a href="javascript:;" onclick="document.getElementById('img').src='/servletTest03_war/checkcode?'+(new Date()).getTime()">
                 <img id="img" style="background-color: #0C0C0C;width: 150px;height: 50px;margin-left: 50px;float:left" src="/servletTest03_war/checkcode" alt="点击刷新验证码">
             </a>
                 <hr style="clear: both" class="hr15">

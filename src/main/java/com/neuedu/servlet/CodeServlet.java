@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/checkcode/*")
+@WebServlet("/checkcode")
 public class CodeServlet extends HttpServlet {
     private static final long serialVersionUID = 3038623696184546092L;
 
