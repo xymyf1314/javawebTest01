@@ -1,7 +1,8 @@
-package com.neuedu.service;
+package com.neuedu.service.serviceimpl;
 
 import com.neuedu.entity.User;
 import com.neuedu.mapper.UserMapper;
+import com.neuedu.service.IUserService;
 import com.neuedu.util.ServletUtil;
 import java.util.List;
 

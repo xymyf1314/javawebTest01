@@ -2,25 +2,19 @@ package com.neuedu.servlet;
 
 import com.neuedu.entity.Admin;
 import com.neuedu.mapper.AdminMapper;
-import com.neuedu.service.AdminServiceImpl;
+import com.neuedu.service.serviceimpl.AdminServiceImpl;
 import com.neuedu.util.MyBatisUtil;
 import com.neuedu.util.ServletUtil;
 import org.apache.ibatis.session.SqlSession;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.image.RenderedImage;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @program: servletTest03

@@ -1,7 +1,8 @@
-package com.neuedu.service;
+package com.neuedu.service.serviceimpl;
 
 import com.neuedu.entity.Admin;
 import com.neuedu.mapper.AdminMapper;
+import com.neuedu.service.IAdminService;
 import com.neuedu.util.ServletUtil;
 
 import java.util.List;

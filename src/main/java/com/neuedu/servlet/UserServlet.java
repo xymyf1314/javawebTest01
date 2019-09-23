@@ -2,7 +2,7 @@ package com.neuedu.servlet;
 
 import com.neuedu.entity.User;
 import com.neuedu.mapper.UserMapper;
-import com.neuedu.service.UserServiceImpl;
+import com.neuedu.service.serviceimpl.UserServiceImpl;
 import com.neuedu.util.MyBatisUtil;
 import com.neuedu.util.ServletUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
