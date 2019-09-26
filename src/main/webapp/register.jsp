@@ -240,11 +240,28 @@
                     },
                     success: function (res) {
                         $("#city").html("");
-                        $("#county").html("");
                         for (var i = 0; i < res.length; i++) {
                             var html = "<option value='" + res[i].code + "'><span>" + res[i].name + "</span></option>";
                             $("#city").append(html);
                         }
+                        // $("#county").html("");
+                        $.ajax({
+                            url: "/servletTest03_war/register",
+                            type: "GET",
+                            dataType: "json",
+                            data: {
+                                code: $("#city").val(),
+                                method: "2"
+                            },
+                            success: function (res) {
+                                $("#county").html("");
+                                for (let i = 0; i < res.length; i++) {
+                                    let html = "<option value='" + res[i].code + "'><span>" + res[i].name + "</span></option>";
+                                    $("#county").append(html);
+                                }
+                            }
+                        });
+
                     }
                 });
             });
@@ -254,7 +271,7 @@
                     url: "/servletTest03_war/register",
                     type: "GET",
                     dataType: "json",
-                    data:{
+                    data: {
                         code: $("#city").val(),
                         method: "2"
                     },
@@ -304,13 +321,13 @@
                 <li><span>出生年月：</span><input class="input1" type="date" name="birthday"/></li>
                 <li><span>居住地址：</span>
                     <select style="width: 150px;height: 30px; font-size: 22px;" id="provinces">
-                        <option id="province" value=""><span>---省/直辖市---</span></option>
+                        <option id="province" value="-1"><span>---省/直辖市---</span></option>
                     </select>
                     <select style="width: 150px;height: 30px; font-size: 22px;" id="city">
-                        <option value="area"><span>---区/市---</span></option>
+                        <option value="-1"><span>---区/市---</span></option>
                     </select>
                     <select style="width: 150px;height: 30px; font-size: 22px;" id="county">
-                        <option value="area"><span>---区县---</span></option>
+                        <option value="-1"><span>---区县---</span></option>
                     </select>
                     <input class="address" type="text" name="" placeholder="请填写具体地址"/></td>
                     </tr>
